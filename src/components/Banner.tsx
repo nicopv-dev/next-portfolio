@@ -9,9 +9,11 @@ export default function Banner() {
       <div className="flex items-center flex-col xl:flex-row gap-8">
         <section className="w-full xl:w-3/5 flex flex-col gap-6 items-center sm:items-start">
           <div className="flex flex-col items-center sm:items-start gap-2">
-            <h3 className="text-2xl">Hola!, mi nombre es</h3>
-            <h1 className="text-6xl font-bold">Nicolas Pereira</h1>
-            <h3 className="text-3xl font-semibold">
+            <h3 className="text-lg sm:text-2xl">Hola!, mi nombre es</h3>
+            <h1 className="text-3xl xs:text-4xl sm:text-6xl font-bold">
+              Nicolas Pereira
+            </h1>
+            <h3 className="text-lg xs:text-xl sm:text-3xl flex flex-col items-center sm:flex-row sm:items-start sm:gap-2 font-semibold">
               tengo experiencia en{" "}
               <span className="text-primary uppercase">
                 <Typewriter
