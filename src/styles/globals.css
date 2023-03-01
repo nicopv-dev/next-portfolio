@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  * {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-image: linear-gradient(
+      to right top,
+      #122036,
+      #12243c,
+      #122742,
+      #122b49,
+      #112f4f
+    );
+  }
+}
