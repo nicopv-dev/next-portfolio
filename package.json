@@ -6,13 +6,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "firebase": "^9.17.1",
     "framer-motion": "^10.0.1",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
-    "react-simple-typewriter": "^5.0.1"
+    "react-scroll": "^1.8.9",
+    "react-simple-typewriter": "^5.0.1",
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
     "@types/node": "18.11.3",

@@ -1,6 +1,6 @@
+import useScroll from "@/hooks/useScroll";
 import { CV } from "@/types";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import {
   IoSunnyOutline,
   IoChevronDownOutline,
@@ -12,15 +12,15 @@ interface IHeaderProps {
 }
 
 export default function Header({ cv_link }: IHeaderProps) {
-  const router = useRouter();
+  const { isScrollActive } = useScroll();
 
   const goTo = () => {
     window.open(cv_link, "_blank");
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full flex justify-center">
-      <div className="max-w-6xl w-full flex items-center justify-end sm:justify-between py-5 xs:py-10 px-5 xl:px-0">
+    <header className={`w-full flex justify-center`} id="home">
+      <div className="max-w-6xl w-full flex items-center justify-end sm:justify-between py-5 xs:py-8 px-5 xl:px-0">
         <h1 className="text-white uppercase font-bold hidden sm:block">
           Nicolas Pereira
         </h1>
@@ -39,19 +39,23 @@ export default function Header({ cv_link }: IHeaderProps) {
             </a>
           </li>
           <li>
-            <button
-              type="button"
-              onClick={goTo}
-              className="text-white p-2 rounded-md font-light flex items-center gap-1 border border-white/50"
+            <Link
+              target="_blank"
+              href={cv_link}
+              className="text-white p-2 rounded-md font-light flex items-center gap-1 border border-white/50 bg-transparent transition-all ease-in-out duration-300 hover:bg-white hover:text-black"
             >
               <IoChevronDownOutline />
-              CV
-            </button>
+              Descargar CV
+            </Link>
           </li>
         </ul>
-        <button type="button" className="block sm:hidden text-white p-2">
+        <Link
+          className="block sm:hidden text-white p-2"
+          href={cv_link}
+          target="_blank"
+        >
           <IoMenuOutline className="w-6 h-6" />
-        </button>
+        </Link>
       </div>
     </header>
   );

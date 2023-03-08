@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-scroll";
 import {
   IoHomeOutline,
   IoPersonSharp,
@@ -8,18 +8,45 @@ import {
 
 export default function Nav() {
   return (
-    <nav className="fixed bottom-0 left-0 w-full overflow-hidden z-50 p-10 flex justify-center">
-      <div className="w-96 bg-black/20 backdrop-blur-2xl rounded-full text-white flex justify-between items-center h-16 shadow-sm transition-all ease-in-out duration-300 hover:shadow-lg hover:cursor-pointer">
-        <Link href={"#"} className="px-8">
+    <nav className="fixed top-0 right-0 h-screen overflow-hidden z-50 flex items-center pr-8">
+      <div className="bg-transparent text-white flex flex-col gap-8">
+        <Link
+          to="home"
+          smoth={"true"}
+          spy={true}
+          activeClass="text-primary"
+          className="transition-all duration-300 ease-in-out hover:cursor-pointer p-2"
+        >
           <IoHomeOutline />
         </Link>
-        <Link href={"#"} className="px-8">
+        <Link
+          to="info"
+          smoth={"true"}
+          spy={true}
+          offset={-50}
+          activeClass="text-primary"
+          className="transition-all duration-300 ease-in-out hover:cursor-pointer p-2"
+        >
           <IoPersonSharp />
         </Link>
-        <Link href={"#"} className="px-8">
+        <Link
+          to="experience"
+          smoth={"true"}
+          spy={true}
+          offset={-50}
+          activeClass="text-primary"
+          className="transition-all duration-300 ease-in-out hover:cursor-pointer p-2"
+        >
           <IoStatsChart />
         </Link>
-        <Link href={"#"} className="px-8">
+        <Link
+          to="projects"
+          smoth={"true"}
+          spy={true}
+          offset={-50}
+          activeClass="text-primary"
+          className="transition-all duration-300 ease-in-out hover:cursor-pointer p-2"
+        >
           <IoFileTrayFullOutline />
         </Link>
       </div>

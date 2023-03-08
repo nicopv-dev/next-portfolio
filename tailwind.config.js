@@ -15,5 +15,11 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  corePlugins: {
+    aspectRatio: false,
+  },
+  plugins: [
+    require("tailwind-scrollbar-hide"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

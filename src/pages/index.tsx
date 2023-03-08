@@ -6,14 +6,18 @@ import Head from "next/head";
 import Image from "next/image";
 import { db } from "@/config/firebase";
 import { getDocs, collection } from "firebase/firestore";
-import { CV } from "@/types";
+import { PersonalInfo } from "@/types";
+import Info from "@/components/Info";
+import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
 
 interface IHomeProps {
   error: boolean;
-  cv: CV;
+  info: PersonalInfo;
 }
 
-const Home = ({ error, cv }: IHomeProps) => {
+const Home = ({ error, info }: IHomeProps) => {
   return (
     <>
       <Head>
@@ -28,10 +32,16 @@ const Home = ({ error, cv }: IHomeProps) => {
       <div className="flex justify-center min-h-screen">
         <div className="max-w-6xl w-full px-5 xl:px-0">
           {/* HEADER */}
-          <Header cv_link={cv.cv_link} />
-          {/* CONTENT */}
-          <Banner />
-          {/* NAVEGATION */}
+          <Header cv_link={info.cv_link} />
+          <div className="flex flex-col gap-10">
+            {/* CONTENT */}
+            <Banner university={info.university} />
+            <Info />
+            <Experience />
+            <Projects />
+            {/* <Skills /> */}
+            {/* NAVEGATION */}
+          </div>
           <Nav />
         </div>
       </div>
@@ -43,10 +53,10 @@ export default Home;
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   try {
-    const infoRef = collection(db, "cv");
+    const infoRef = collection(db, "personal_info");
 
     const snapshot = await getDocs(infoRef);
-    const cvs = snapshot.docs.map((doc) => ({
+    const info = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
@@ -54,7 +64,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
     return {
       props: {
         error: false,
-        cv: cvs[0],
+        info: info[0],
       },
     };
   } catch (err) {
